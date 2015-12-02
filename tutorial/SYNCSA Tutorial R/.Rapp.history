@@ -1,0 +1,6 @@
+W <- read.table("W_14c_81spp.txt", nrows=81, header=TRUE) #read community data#
+B <- read.table("B_81spp_8t.txt", nrows=81, header=TRUE) #read trait data#
+E <- read.table("E_14c_1v.txt", nrows=14, header=TRUE) #read environmental data#
+DistPhyl <- read.table("81spp_PhylDissim.txt", nrows=81, header=TRUE) #read phylogenetic distance matrix
+install.packages("SYNCSA")
+library(SYNCSA)
