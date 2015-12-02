@@ -30,15 +30,29 @@ optimal(comm = data$community,
         method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE,
         notification = TRUE, progressbar = TRUE)
 
+#' maximum correlation is with traits `pi`, `he` and `ll`
+#' So now we need to reduce the traits of the full matrix
+#' 
+good_traits <- colnames(data$traits) %in% c("pi", "he", "ll")
+Btcap <- data$traits[,good_traits]
 
+set.seed(12345)
 
+syncsa(comm = data$community,
+       traits = Btcap,
+       dist.spp = data$dist.spp,
+       envir = data$environmental,
+       method = "pearson", dist = "euclidean", scale = TRUE,
+       scale.envir = TRUE, permutations = 999, na.rm = FALSE, notification = TRUE)
+
+#' # tdap
 optimal(comm = data$community,
         traits = data$traits,
         envir = data$environmental,
         subset.min = 1, subset.max = 8, pattern = "tdap", dist = "euclidean", method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE, notification = TRUE, progressbar = TRUE)
+
+#' # tcap and tdap
 optimal(comm = data$community,
         traits = data$traits,
         envir = data$environmental,
         subset.min = 1, subset.max = 8, pattern = "tcap.tdap", dist = "euclidean", method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE, notification = TRUE, progressbar = TRUE)
-
-Btcap <- 
