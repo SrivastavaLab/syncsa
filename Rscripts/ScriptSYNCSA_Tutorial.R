@@ -22,16 +22,23 @@ syncsa(comm = data$community,
        method = "pearson", dist = "euclidean", scale = TRUE,
        scale.envir = TRUE, permutations = 999, na.rm = FALSE, notification = TRUE) 
 
+#' # tcap
 optimal(comm = data$community,
         traits = data$traits,
-        dist.spp = data$dist.spp,
-        subset.min = 1, subset.max = 8, pattern = "tcap", dist = "euclidean", method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE, notification = TRUE, progressbar = TRUE)
+        envir = data$environmental,
+        subset.min = 1, subset.max = 8, pattern = "tcap", dist = "euclidean",
+        method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE,
+        notification = TRUE, progressbar = TRUE)
+
+
+
 optimal(comm = data$community,
         traits = data$traits,
-        dist.spp = data$dist.spp,
+        envir = data$environmental,
         subset.min = 1, subset.max = 8, pattern = "tdap", dist = "euclidean", method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE, notification = TRUE, progressbar = TRUE)
 optimal(comm = data$community,
         traits = data$traits,
-        dist.spp = data$dist.spp,
+        envir = data$environmental,
         subset.min = 1, subset.max = 8, pattern = "tcap.tdap", dist = "euclidean", method = "pearson", scale = TRUE, scale.envir = TRUE, na.rm = FALSE, notification = TRUE, progressbar = TRUE)
 
+Btcap <- 
